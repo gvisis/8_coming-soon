@@ -7,10 +7,6 @@
     width: 100%;
     padding: calc(var(--section-padding) * 2) 0;
 }
-    .container.hero {
-        /* background-image: url(../img/banner.png); */
-
-    }
     .container > .row-short {
         display: inline-block;
         width: 600px;
@@ -45,11 +41,13 @@ jei salyga min-width, tai reiskia viskas prades veikti tik nuo 1100px
     .container > .row {
         width: 800px;
         margin: 0 calc(50% - 400px);
+    }
 }
 @media (max-width: 900px) {
     .container > .row {
         width: 600px;
         margin: 0 calc(50% - 300px);
+    }
 }
 /* ! **** NOT SO HORIZONTALIAI VERSIJAI **** KAI PASIEKIA MOBILIOJO EKRANO DYDZIUS  , WIDTH REIKIA PADARYT 100% IR MARGIN LEFT NUIMTI*/
 @media (max-width: 700px) {
