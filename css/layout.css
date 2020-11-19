@@ -1,4 +1,7 @@
 /* ! LAYOT RASOM KAI KAZKAS BUNA DEFAULT */
+
+/* ! LUZIO TASKAS KAI LUZTA EKRANAS: DIDZIAUSIAS ELEMENTAS + 100 PX */
+/* ! Windows scrollbaras yra 17px */
 .container { 
     display: inline-block;
     width: 100%;
@@ -29,3 +32,63 @@
             width: 40%;
             margin-left: 10%;
         }
+
+/*! () - parametras i kuri reikia atsizvelgti  */
+/* 
+*min-width - reiskia minimalus plotis 
+jei salyga min-width, tai reiskia viskas prades veikti tik nuo 1100px 
+
+*jei max-width -  VEIKIA KOL WIDTH LANGO YRA 1100PX
+*/
+@media (max-width: 1100px) {
+    .container > .row {
+        width: 800px;
+        margin-left: calc(50% - 400px);
+}
+@media (max-width: 900px) {
+    .container > .row {
+        width: 600px;
+        margin-left: calc(50% - 300px);
+}
+@media (max-width: 700px) {
+    .container > .row {
+        width: 400px;
+        margin-left: calc(50% - 200px);
+    }
+    .container > .row-short {
+        display: inline-block;
+        width: 400px;
+        margin-left: calc(50% - 200px);
+    }
+}
+/* ! **** NOT SO HORIZONTALIAI VERSIJAI **** KAI PASIEKIA MOBILIOJO EKRANO DYDZIUS  , WIDTH REIKIA PADARYT 100% IR MARGIN LEFT NUIMTI*/
+@media (max-width: 500px) {
+    /* !KAI KAD VIDINIS TURINYS NESILIESTU VISISKAI PRIE SONU, PAGRINDINIAME CONTAINERYJE REIKIA PADARYT PADDING, KAD ATSIKTRAUTKU SIEK TIEK NUO SONO */
+    .container { 
+        /* display: inline-block; */
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .container > .row {
+        width: 100%;
+        
+        /** PALIEKAM MARGIN-LEFT 0 , NES JEI ISTRINTUME, GALIOTU SENOSIOS .ROW CLASS'ES TAISYKLES */
+        margin-left: 0;
+    }
+    .container > .row-short {
+        display: inline-block;
+        width: 100%;
+        margin-left: 0;
+    }   
+        /*! PASIEKUS MOBILIOS VERSIJOS HORIZANTALIA VERSIJA , COLUMNTAI SOKA VIENAS PO KITU, TODEL REKTU NUSTATYT, KAD ABEJU DYDIS YRA 100% EKRANO */
+        .container > .row > .column.left {
+            width: 100%;
+        }
+        .container > .row > .column.right {
+            width: 100%;
+            margin-left: 0;
+
+            /*TODO kam vis delto reikalingas sitas ? */
+            margin-top: calc(var(--section-padding) * 2) 0;
+        }
+}
