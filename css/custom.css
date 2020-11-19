@@ -21,7 +21,7 @@ footer.container {
     text-align: center;
 }
 .hero img {
-    /* margin-bottom: calc(var(--hero-space) * 2); */
+    margin-bottom: calc(var(--hero-space) * 2);
     
 }
 .hero h1 {
