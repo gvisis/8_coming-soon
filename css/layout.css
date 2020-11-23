@@ -3,20 +3,20 @@
 /* ! LUZIO TASKAS KAI LUZTA EKRANAS: DIDZIAUSIAS ELEMENTAS + 100 PX */
 /* ! Windows scrollbaras yra 17px */
 .container { 
-    display: inline-block;
+    display: grid;
+    grid-template-columns: 1fr 200px 300px 300px 200px 1fr;
     width: 100%;
     padding: calc(var(--section-padding) * 2) 0;
 }
     .container > .row-short {
         display: inline-block;
-        width: 600px;
-        margin: 0 calc(50% - 300px);
-       
+        grid-column: 3 / 5;
+        background: yellow;
     }
     .container > .row {
         display: inline-block;
-        width: 1000px;
-        margin: 0 calc(50% - 500px);
+        grid-column: 2 / 6;
+        background: red;
     }
     .container > .row > .column {
         display: inline-block;
@@ -30,52 +30,37 @@
             margin-left: 10%;
         }
 
-/*! () - parametras i kuri reikia atsizvelgti  */
-/* 
-*min-width - reiskia minimalus plotis 
-jei salyga min-width, tai reiskia viskas prades veikti tik nuo 1100px 
-
-*jei max-width -  VEIKIA KOL WIDTH LANGO YRA 1100PX
-*/
 @media (max-width: 1100px) {
-    .container > .row {
-        width: 800px;
-        margin: 0 calc(50% - 400px);
+    .container {
+        grid-template-columns: 1fr 100px 300px 300px 100px 1fr;
     }
 }
-@media (max-width: 900px) {
-    .container > .row {
-        width: 600px;
-        margin: 0 calc(50% - 300px);
-    }
-}
-/* ! **** NOT SO HORIZONTALIAI VERSIJAI **** KAI PASIEKIA MOBILIOJO EKRANO DYDZIUS  , WIDTH REIKIA PADARYT 100% IR MARGIN LEFT NUIMTI*/
-@media (max-width: 700px) {
-    /* !KAI KAD VIDINIS TURINYS NESILIESTU VISISKAI PRIE SONU, PAGRINDINIAME CONTAINERYJE REIKIA PADARYT PADDING, KAD ATSIKTRAUTKU SIEK TIEK NUO SONO */
-    .container { 
-        /* display: inline-block; */
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-    .container > .row-short {
-        width: 100%;
-        margin: 0;
-    }   
-    .container > .row {
-        width: 100%;
-        
-        /** PALIEKAM MARGIN-LEFT 0 , NES JEI ISTRINTUME, GALIOTU SENOSIOS .ROW CLASS'ES TAISYKLES */
-        margin: 0;
-    }
-    /*! PASIEKUS MOBILIOS VERSIJOS HORIZANTALIA VERSIJA , COLUMNTAI SOKA VIENAS PO KITU, TODEL REKTU NUSTATYT, KAD ABEJU DYDIS YRA 100% EKRANO */
-    .container > .row > .column.left {
-        width: 100%;
-    }
-    .container > .row > .column.right {
-        width: 100%;
-        margin: 0;
 
-        /*TODO kam vis delto reikalingas sitas ? */
-        margin-top: calc(var(--section-padding) * 2);
-    }   
+@media (max-width: 900px) {
+    .container {
+        grid-template-columns: 1fr 300px 300px 1fr;
+    }
+        .container > .row-short,
+        .container > .row {
+            grid-column: 2 / 4;
+        }
+}
+
+@media (max-width: 700px) {
+    .container {
+        grid-template-columns: 20px 1fr 20px;
+    }
+        .container > .row-short,
+        .container > .row {
+            grid-column: 2 / 3;
+        }
+    
+            .container > .row > .column.left {
+                width: 100%;
+            }
+            .container > .row > .column.right {
+                width: 100%;
+                margin: 0;
+                margin-top: calc(var(--section-padding) * 2);
+            }
 }
