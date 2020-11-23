@@ -11,12 +11,10 @@
     .container > .row-short {
         display: inline-block;
         grid-column: 3 / 5;
-        background: yellow;
     }
     .container > .row {
         display: inline-block;
         grid-column: 2 / 6;
-        background: red;
     }
     .container > .row > .column {
         display: inline-block;
