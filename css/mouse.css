@@ -1,27 +1,33 @@
 /* ? AKTORIAI */
 .mouse {
     display: inline-block;    
-    width: 200px;
-    height: 300px;
-    border: 15px solid #fff;
-    border-radius: 100px;
+    width: 20px;
+    height: 30px;
+    border: 3px solid #fff;
+    border-radius: 10px;
 }
 
     .mouse > .wheel {
         display: inline-block;
-        width: 15px;
-        height: 30px;
-        border-radius: 8px;
+        width: 3px;
+        height: 6px;
+        border-radius: 2px;
         background-color: #fff;
         margin-top: 50px;
         animation-name: peliukas;
-        animation-duration: 1.5s;
+        animation-duration: 1s;
         animation-iteration-count: infinite;
+        /* background-image: url(../img/mouse.webp); */
+        background-size: 50px;
     }
+
+        .mouse > .wheel:hover {
+            animation-play-state: paused;
+        }
 /* ? SCENARIJUS */
 @keyframes peliukas {
 	0% {
-        margin-top: 50px;
+        margin-top: 5px;
         background-color: #ffff;
     }
     /* elementas islaikys spalva iki 50% */
@@ -30,7 +36,8 @@
     }
     /* nuo 50% iki 100% elementas keis spalva */
 	100% {
-        margin-top: 180px;
+        margin-top: 15px;
         background-color: #fff0;
+        /* transform: rotate(720deg); */
     }
 }
