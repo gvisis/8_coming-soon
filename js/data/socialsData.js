@@ -7,21 +7,13 @@ const socialsData = [
         icon: 'twitter',
         link: '#'
     },
-    45345345345,
     { 
         icon: 'dribbble',
         link: '#'
     },
-    'asgd',
-    true,
-    {},
     { 
         icon: 'tumblr',
         link: '#'
-    },
-    { 
-        icon: '',
-        link: ''
     },
     { 
         icon: 'instagram',
