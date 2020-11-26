@@ -1,8 +1,12 @@
 import { renderSocials } from './components/socials/renderSocials.js';
-
 import { socialsData } from './data/socialsData.js';
+import { renderClock } from './components/clock/renderClock.js'
+
 
 renderSocials('footer > .row', socialsData);
+
+renderClock('.clock');
+
 
 //----------------------
 // skirtingose vietose '.main > .row' ir footer.row generuos ta pati turini is socialsData
