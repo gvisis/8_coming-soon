@@ -1,6 +1,6 @@
 import { isInputValid } from "./isInputValid.js";
 import { isValidSocialItem } from "../isValidSocialItem.js"
-render
+
 /**
  * Social nuorodu generavimas is pateiktu duomenu i nurodyta vieta DOM'e
  * @param {string} selector Selektorius kaip rasti norima vieta, kur bus istatomas sugeneruotas kodas 
