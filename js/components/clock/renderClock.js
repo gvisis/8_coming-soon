@@ -1,3 +1,4 @@
+import { countTimeDiff } from './countTimeDiff.js'
 // TARGET DATE is new years evening.
 // 2021-01-01 00:00:00
 
@@ -21,70 +22,41 @@ function renderClock(selector) {
         console.error('Error: nerasta vieta, kur sugeneruoti laikrodzio HTML turini');
         return false;
     }
-
-    // einamieji metai (2020)
-    const date = new Date();
+    const time = countTimeDiff();
     
-    //?gets the year now
-    const currentYear = date.getFullYear();
-
-    // naujakas = einamieji metai + 1 ( 2020 + 1 = 2021 )
-    const newYear = currentYear + 1;
-    
-    // susikonstrojame pilna data: ${naujakas}-01-01 00:00:00
-    //? Ka laikrodis turi rodyti, kad butu nauji metai
-    const newYearDate = `${newYear}-01-01 00:00:00`;
-
-    //pasidarom nauja data, paimdami newYearDate
-    const newYearObject = new Date(newYearDate);
-
-    // gauname rezultata milisekundemis. Suzinom kiek milisekundziu bus nauju metu datoje. 
-    const newYearMilliseconds = newYearObject.getTime();
-
-    // einamasis laikas yyyy-mm-dd hh:mm:ss
-    // currentTime / 1000 / 60 / 60/ 24 / 365.25
-    //? gauname dabartini laika milisekundemis. Jis apskaiciuojamas nuo 1970m datos. Gauta laika ppaversti i metus ir prideti prie 1970,gauname dabartine data 
-    const currentTimeMilliseconds = date.getTime();
-    
-    // suskaiciuojame laiko skirtuma tarp datos nuo kurios darom countdowna iki dabartines datos
-    const timeLeft = newYearMilliseconds - currentTimeMilliseconds;
-
-    // surandame kiek liko sekundziu paimdami ms is timeLeft ir padalinam is 1000
-    let secondsLeft = timeLeft / 1000;
-
-
-    // norint ji apskaiciuoti reikia nuo reikiamos datos atimti currentTime (1970) 
-    // is skirtumo apskaiciuojame likusias dienas, valandas, minutes ir sekundes
-    const days = Math.floor(secondsLeft / 60 / 60 / 24);
-
-    // atima nepanaudotas sekundes 
-    secondsLeft -= days * 60 * 60 * 24;
-    // gauna nepanaudotas sekundes kurias isdalina valandoms ?? what.
-    // const hours = Math.floor((secondsLeft - days * 60 * 60 * 24) / 60 / 60);
-    const hours = Math.floor(secondsLeft / 60 / 60)
-    secondsLeft -= hours * 60 * 60;
-
-    const minutes = Math.floor(secondsLeft / 60);
-
-    const seconds = Math.floor(secondsLeft - minutes * 60);
-
     const HTML = `<div class="time-box">
-                    <div class="time">${days}</div>
+                    <div class="time">${time.days}</div>
                     <span>Days</span>
                 </div>
                 <div class="time-box">
-                    <div class="time">${hours}</div>
+                    <div class="time">${time.hours}</div>
                     <span>Hours</span>
                 </div>
                 <div class="time-box">
-                    <div class="time">${minutes}</div>
+                    <div class="time">${time.minutes}</div>
                     <span>Minutes</span>
                 </div>
                 <div class="time-box">
-                    <div class="time">${seconds}</div>
+                    <div class="time">${time.seconds}</div>
                     <span>Seconds</span>
-                </div>`
+                </div>`;
+
     DOM.innerHTML = HTML;
+
+    const timesDOM = DOM.querySelectorAll('.time'); 
+    console.log(timesDOM[3]);
+
+    //paleidziame laikrodzio mechanizma
+    let timePassed = 0;
+    setInterval(() => {
+        const time = countTimeDiff();
+        timesDOM[0].innerText = time.days;
+        timesDOM[0].innerText = time.days;
+        timesDOM[0].innerText = time.days;
+        timesDOM[3].innerText = time.seconds;
+    }, 1000); 
+
+
     return true;
 }
 
