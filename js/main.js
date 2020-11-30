@@ -1,16 +1,25 @@
-import { renderSocials } from './components/socials/renderSocials.js';
+import { renderSocials } from "./components/socials/renderSocials.js";
 import { socialsData } from './data/socialsData.js';
-import { renderClock } from './components/clock/renderClock.js'
+import { renderClock } from './components/clock/renderClock.js';
 
+import { renderAllProgressBars } from './components/progress-bar/renderAllProgressBars.js';
+import { progressBarData } from './data/progressBarData.js';
 
 renderSocials('footer > .row', socialsData);
 
 renderClock('.clock');
 
+//? Negeras variantas uzrasyti :)) 
+// renderProgressBar('.column.left', 'Web development', 90);
+// renderProgressBar('.column.left', 'Web design', 80);
+// renderProgressBar('.column.left', 'UX', 40);
+
+renderAllProgressBars(progressBarData);
 
 //----------------------
 // skirtingose vietose '.main > .row' ir footer.row generuos ta pati turini is socialsData
 // renderSocials('main > .row', socialsData2);
+
 //------------------------
 /* const h1DOM = document.querySelector('h1'); // randa viena ir pirma elementa su tagu h1;; querySelector yra vienas elementas
 const inputDOM = document.querySelectorAll('input'); // suras visus inputus .form klaseje

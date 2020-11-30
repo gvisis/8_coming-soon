@@ -109,6 +109,7 @@ footer {
         padding: 10px 20px;
         border-bottom: 1px solid #fff;
         flex-wrap: wrap;
+        position: relative;
     }
     footer .fa {
         color: #fff;
@@ -119,8 +120,17 @@ footer {
         text-align: center;
         border-radius: 50%;
         transition: all 0.5s;
-    
     }
+        footer .btn.circle {
+            position: absolute;
+            top: -24px;
+            right: -13px;
+        }
+        /* footer .social.fa:hover {
+            background-color: var(--main-color);
+            color: #fff;
+        } */
+    
     footer .fa:hover {
         background-color: #fff;
         color: var(--main-color);

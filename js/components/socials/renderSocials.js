@@ -41,7 +41,7 @@ function renderSocials(selector, data){
         return false
     }    
     //?return
-    socialsDOM.innerHTML = HTML;  //narsykle suranda socialsDOM documente queryselektoriu "footer > .row", ir ipastina html KODA is funkcijos kur HTML === kazkas. 
+    socialsDOM.innerHTML += HTML;  //narsykle suranda socialsDOM documente queryselektoriu "footer > .row", ir ipastina html KODA is funkcijos kur HTML === kazkas. 
 }
 
 
