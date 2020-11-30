@@ -7,6 +7,7 @@ import { progressBarData } from './data/progressBarData.js';
 
 renderSocials('footer > .row', socialsData);
 
+
 renderClock('.clock');
 
 //? Negeras variantas uzrasyti :)) 
