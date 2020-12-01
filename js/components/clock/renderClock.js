@@ -51,8 +51,8 @@ function renderClock(selector) {
     setInterval(() => {
         const time = countTimeDiff();
         timesDOM[0].innerText = time.days;
-        timesDOM[0].innerText = time.days;
-        timesDOM[0].innerText = time.days;
+        timesDOM[1].innerText = time.hours;
+        timesDOM[2].innerText = time.minutes;
         timesDOM[3].innerText = time.seconds;
     }, 1000); 
 
