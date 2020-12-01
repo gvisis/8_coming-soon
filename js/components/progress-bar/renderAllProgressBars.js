@@ -24,6 +24,33 @@ function renderAllProgressBars(data) {
 
         renderProgressBar(bar.selector, bar.title, bar.value);
     }
+    const allProgressBars = document.querySelectorAll('.progress-bar');
+    console.log(allProgressBars);
+    addEventListener('scroll', () => {
+        //! suskaiciuoja scrollinant koks visas ekrano ilgis
+        const screenBottom = innerHeight + scrollY;
+        
+        //TODO jei yra s\arasas ar objektas patogiausia naudoti sita cikla. ******** READ MORE ********
+        for (let bar of allProgressBars) {
+
+            // elemento apacia yra elemento aukstis + atsitraukimas nuo virsaus 
+            // suskaiciuoja kiekvieno elemento apacia
+            const barBottom = bar.offsetHeight + bar.offsetTop; 
+
+                //? jeigu ekranoapacia daugiau uz elemento apacia
+                if (screenBottom >= barBottom){
+
+                    // uzdeda CLASS kiekvienam pamatytam progress barui, kuri turi animation stiliu
+                    bar.classList.add('animate');
+                    
+                }
+        }
+
+        /* offsetHeight: 50 // elemento aukstis
+        offsetWidth: 400 // koks elemento plotis
+        offsetLeft: 113 // kiek atitoles nuo turinio kaires
+        offsetTop: 949 // kiek atitoles nuo turinio virsaus */
+    })
 
     return true;
 }
