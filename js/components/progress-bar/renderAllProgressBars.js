@@ -24,13 +24,14 @@ function renderAllProgressBars(data) {
 
         renderProgressBar(bar.selector, bar.title, bar.value);
     }
+
     const allProgressBars = document.querySelectorAll('.progress-bar');
-    console.log(allProgressBars);
+
     addEventListener('scroll', () => {
-        //! suskaiciuoja scrollinant koks visas ekrano ilgis
+
+        //! suskaiciuoja nuscrollinto ekrano ilgi nuo pacio puslapio virsaus iki matomos apacios
         const screenBottom = innerHeight + scrollY;
-        
-        //TODO jei yra s\arasas ar objektas patogiausia naudoti sita cikla. ******** READ MORE ********
+        //TODO jei yra sarasas ar objektas patogiausia naudoti sita cikla. ******** READ MORE ********
         for (let bar of allProgressBars) {
 
             // elemento apacia yra elemento aukstis + atsitraukimas nuo virsaus 
@@ -45,7 +46,7 @@ function renderAllProgressBars(data) {
                     
                 }
         }
-
+        
         /* offsetHeight: 50 // elemento aukstis
         offsetWidth: 400 // koks elemento plotis
         offsetLeft: 113 // kiek atitoles nuo turinio kaires

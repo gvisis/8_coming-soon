@@ -30,8 +30,8 @@
             <div class="clock">
             </div>
             <form class="form">               
-                <input type="email" placeholder="Email" required>
-                <div class="btn">Subscribe now!</div>
+                <input type="email" placeholder="Email" required data-validation="email">
+                <input class="btn" type="submit" value="Subscribe now">
             </form>
             <div class="mouse">
                 <div class="wheel"></div>
@@ -47,13 +47,14 @@
             <div class="column right">
                 <h2>Have any questions?</h2>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi obcaecati, hic quaerat sapiente dolorem <a href="mailto:vardenis@pastelis.com">vardenis@pastelis.com</a> unde similique non optio perspiciatis alias!</p>
+                
                 <form class="form">               
-                    <input type="text" placeholder="Name">
-                    <input type="email" placeholder="Email">
-                    <textarea placeholder="Message"></textarea>
-                    <!-- <input type="submit" value="Send message"> -->
-                    <div class="btn">Send message</div>
+                    <input type="text" placeholder="Name" data-validation="name">
+                    <input type="email" placeholder="Email" required data-validation="email">
+                    <textarea placeholder="Message" required data-validation="text"></textarea>
+                    <input class="btn" type="submit" value="Send message">
                 </form>
+                
             </div>
         </div>
     </main>
