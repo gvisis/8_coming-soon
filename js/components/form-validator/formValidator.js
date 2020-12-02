@@ -1,4 +1,6 @@
-import { isValidEmail,isValidName,isValidText } from './validationRules.js'
+import { validation } from './validationRules.js' // biblioteka kur yra validacijos
+
+
 function formValidator(selector){
     //? susirandam kur yra forma, pagal funkcijai perduota selectoriu 
     const formDOM = document.querySelector(selector);
@@ -15,7 +17,7 @@ function formValidator(selector){
 
     //? sarasas[array], kur bus visi inputai, ir visos text area; 
     const allElements = [...allInputDOMs, ...allTextareaDOMs];
-    console.log(allElements);
+    
     //? kai paspausime sita mygtuka - submitBtnDOM , ivyks kazkas 
     //? kiekvieno paspaudimo metu, funkcija turi eiti ir tikrinti
     submitBtnDOM.addEventListener('click', () => {
@@ -37,31 +39,35 @@ function formValidator(selector){
 
             //? pridedami errorCount++ jei nors viena funkcija prides errorcounta, formos neissius. Ir isspausdins errora tik tada, kai bus erras.
 
-            if (validationRule === 'name'){
-                //? gausim teksta is vardo validacijos ir ji isprintinsim 
-                const nameError = isValidName(text);
-                if (nameError !== true){
-                    console.log(nameError);
-                    errorCount++
-                }
-                
+            //? gausim teksta is vardo validacijos ir ji isprintinsim 
+            // if (validationRule === 'name'){
+
+                //* validation yra bibliotekos pavadinimas
+                //* validationRule yra ka istraukiam    
+            const validationFunction = validation[validationRule];
+            const error = validationFunction(text);
+            if (error !== true){
+                console.log(error);
+                errorCount++
+            }
             }
 
-            if (validationRule === 'email'){
-                const emailError = isValidEmail(text);
-                if (emailError !== true){
-                    console.log(emailError);
-                    errorCount++
-                }
-            }
+            //* kodas buvo sutrumpintas virsuje
+            // if (validationRule === 'email'){
+            //     const emailError = isValidEmail(text);
+            //     if (emailError !== true){
+            //         console.log(emailError);
+            //         errorCount++
+            //     }
+            // }
 
-            if (validationRule === 'text'){
-                const textError = isValidText(text);
-                if (textError !== true){
-                    console.log(textError);
-                    errorCount++
-                }
-            }
+            // if (validationRule === 'text'){
+            //     const textError = isValidText(text);
+            //     if (textError !== true){
+            //         console.log(textError);
+            //         errorCount++
+            //     }
+            // }
         //! Neteisingas uzrasymas. Pakeista virsuje
         //     if (validationRule === 'name' && nameError !== true) {
         //         console.log(nameError);
@@ -76,7 +82,6 @@ function formValidator(selector){
         //         errorCount++;
         //     }
         // };
-        };
 
         //? issius/isspausdins tik tada, kai nebus nei vieno error
         if (errorCount === 0){
