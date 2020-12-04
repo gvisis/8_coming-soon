@@ -54,13 +54,13 @@ footer.container {
     /* pasiima visa eilutes ilgi, todel mouse persikelia i apacia */
     margin: 0 5% var(--hero-space);
 }
-    .hero .form > input {
+    .hero .form > input:not(.btn) {
         width: 100%;
         color: #fff;
         border-bottom-color: #fff;
         background-color: transparent;
     }
-        .hero .form > input::placeholder {
+        .hero .form > input:not(.btn)::placeholder {
             color: #fff;
         }
     .hero .form .btn {
