@@ -7,11 +7,17 @@ class Toast {
         this.renderIntoParentDOM = document.querySelector(this.selector); 
 
         //! null kad nemestu klaidos, o paskuj sitos reiksmes bus pakeistos
-        //? reprezentuoja naujai sugeneruota elementa
+        //? reprezentuoja naujai sugeneruota elementa, pakeisime veliau
         this.DOM = null; 
 
-        //? elementas kur atvaizduosime pranesima
+        //? elementas kur atvaizduosime pranesima, pakeisime veliau
         this.textDOM = null; 
+
+        //? elementas skirtas uzdaryti toasta
+        this.closeDOM = null; 
+
+        //? laikrodis, reguliuojantis kada uzdaryti pranesima
+        this.closeTimer = null; 
     }
     
     //? uzdeda klase, parodo toasta
@@ -25,11 +31,19 @@ class Toast {
         if (type === 'error') {
             this.DOM.classList.add('error');
         }
+
+        //? paslepsim auatomatiskai jei niekas nepaspaus
+        this.closeTimer = setTimeout(() => {
+            this.hide();
+        }, 10000)
     }
 
     //? nuima klase , paslepia toasta
     hide(){
         this.DOM.classList.remove('visible')
+
+        //? kai uzdarysim , timeris sustos ir nebesisuks
+        clearTimeout(this.closeTimer);
     }
     
     //? sukuria elemento Html
@@ -43,7 +57,18 @@ class Toast {
         //? insertAdjacentHTML nekeicia esamo turinio. insertHTML pakeicia - !NENAUDOTI!
         this.renderIntoParentDOM.insertAdjacentHTML('beforeend', HTML);
         this.DOM = this.renderIntoParentDOM.querySelector('.toast');
+
+        //? kur irasom konkrecias zinutes
         this.textDOM = this.DOM.querySelector('p');
+
+        //? surandam kur yra closeDOM elementas
+        this.closeDOM = this.DOM.querySelector('.fa-times');
+
+        //? paspausim ir ka darysim?
+        this.closeDOM.addEventListener('click', () => {
+            //? paslepsim issivkiete Toast classes hide() moduli
+            this.hide()
+        });
     }
 }
 

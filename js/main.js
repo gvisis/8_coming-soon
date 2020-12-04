@@ -24,11 +24,13 @@ renderAllProgressBars(progressBarData);
 
 //? sukuriamas naujas Toast
 const toast = new Toast();
-formValidator('.hero .form');
-formValidator('main .form');
-
 toast.render();
-toast.show('success', 'Buvo gera diena!!! ;)');
+
+formValidator('.hero .form', toast);
+formValidator('main .form',toast);
+
+// toast.show('success', 'Buvo gera diena!!! ;)');
+// toast.show('error', 'Buvo bloga diena :(');
 
 //----------------------
 // skirtingose vietose '.main > .row' ir footer.row generuos ta pati turini is socialsData

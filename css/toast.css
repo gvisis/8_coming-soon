@@ -42,6 +42,9 @@
         .toast.error > .fa.fa-shield {
             display: inline-block;
         }
+        .toast > .fa.fa-times:hover {
+            cursor: pointer;
+        }
     .toast > p {
         display: inline-block;
         float: left;
