@@ -1,4 +1,8 @@
 class Toast {
+    /**
+     * Konstruktorius inicijuojantis pranesima rodanti elementa
+     * @constructor
+     */
     constructor() {
         //? nustatom kur norim istatyt elementa
         this.selector = 'body';
@@ -21,6 +25,11 @@ class Toast {
     }
     
     //? uzdeda klase, parodo toasta
+       /**
+     * 
+     * @param {string} type Zinutes tipas. Vieninteliai galimi variantai: `success | error`.
+     * @param {string} message Tekstas, kuris turi buti atvaizduotas pranesime.
+     */
     show(type, message) {
         this.DOM.classList.add('visible');
         this.textDOM.innerText = message;
@@ -39,6 +48,9 @@ class Toast {
     }
 
     //? nuima klase , paslepia toasta
+    /**
+     * Metodas paslepiantis pranesimo elementa
+     */
     hide(){
         this.DOM.classList.remove('visible')
 
@@ -47,6 +59,9 @@ class Toast {
     }
     
     //? sukuria elemento Html
+     /**
+     * Metodas sugeneruojantis pranesimo elementa
+     */
     render() {
         const HTML = `<div class="toast">
                         <i class="fa fa-check"></i>
