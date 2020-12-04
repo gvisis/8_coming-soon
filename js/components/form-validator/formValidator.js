@@ -33,12 +33,9 @@ function formValidator(selector){
             //? norint issitraukti inputo teksta naudoti inputas.value 
             const text = input.value;
 
+            
             //! Logiskesnis uzrasymas, nes funkcija patikrins tik kiekviena taisykle atskirai. Pries tai tikrino kiekviena atskirai, bet taip pat emailus ir textus nors nereikejo.
-
             //? patikrinam pagal taisykles, ar ivestas tekstas i datatipa name yra validus vardas   
-
-            //? pridedami errorCount++ jei nors viena funkcija prides errorcounta, formos neissius. Ir isspausdins errora tik tada, kai bus erras.
-
             //? gausim teksta is vardo validacijos ir ji isprintinsim 
             // if (validationRule === 'name'){
 
@@ -48,9 +45,12 @@ function formValidator(selector){
             const error = validationFunction(text);
             if (error !== true){
                 console.log(error);
+
+                
+            //? pridedami errorCount++ jei nors viena funkcija prides errorcounta, formos neissius. Ir isspausdins errora tik tada, kai bus erras.
                 errorCount++
             }
-            }
+        }
 
             //* kodas buvo sutrumpintas virsuje
             // if (validationRule === 'email'){

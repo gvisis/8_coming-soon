@@ -4,7 +4,12 @@ import { renderClock } from './components/clock/renderClock.js';
 
 import { renderAllProgressBars } from './components/progress-bar/renderAllProgressBars.js';
 import { progressBarData } from './data/progressBarData.js';
+
 import { formValidator } from './components/form-validator/formValidator.js'
+
+import { Toast } from './components/toast/Toast.js'
+
+
 renderSocials('footer > .row', socialsData);
 
 
@@ -17,8 +22,13 @@ renderClock('.clock');
 
 renderAllProgressBars(progressBarData);
 
+//? sukuriamas naujas Toast
+const toast = new Toast();
 formValidator('.hero .form');
 formValidator('main .form');
+
+toast.render();
+toast.show('success', 'Buvo gera diena!!! ;)');
 
 //----------------------
 // skirtingose vietose '.main > .row' ir footer.row generuos ta pati turini is socialsData
